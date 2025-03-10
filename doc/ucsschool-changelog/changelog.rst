@@ -8,9 +8,9 @@
 Changelog
 *********
 
-.. _changelog-ucsschool-2025-02-03:
+.. _changelog-ucsschool-2025-03-10:
 
-Released on 2025-02-11
+Released on 2025-03-10
 ======================
 
 Source package *ucs-school-metapackage* in version ``13.0.19``:
