@@ -18,7 +18,6 @@ This document describes how to prepare and execute a full release for the UCS@sc
   - [ ] Verify YAML advisories
   - [ ] Tag an appropriate commit with the `release-<version>` tag
 - [ ] Create new changelog
-  - [ ] Create a new link on the UCS changelog pages
 - [ ] Create new version in Test Appcenter
   - [ ] Adjust the version in the README files in the test appcenter
 - [ ] Publish to Test Appcenter
@@ -26,13 +25,13 @@ This document describes how to prepare and execute a full release for the UCS@sc
 - [ ] Publish to production Appcenter
 - [ ] Publish manual
 - [ ] Update public documentation
-  - [ ] Update release wiki
   - [ ] Update bugzilla bugs
 - [ ] QA the release
 - [ ] Create new target milestone in bugzilla
 - [ ] Create next errata release issue
 - [ ] Update README release documentation (both full and errata) so that bash commands and html links point to the correct versions of UCS@school.
 - [ ] Check if the maintenance information has to be updated (https://docs.software-univention.de/n/en/maintenance/ucsschool.html#maintenance-ucsschool)
+    - [ ] Create a new link on the UCS changelog pages
     - See READMEs on https://git.knut.univention.de/univention/dist/release-dates and https://git.knut.univention.de/univention/documentation/ucs-doc-overview-pages
     - [ ] If a new document has been added, add it to `docsearch.config.json` in repository https://git.knut.univention.de/univention/documentation/docsearch/
 - [ ] Send announcement email
@@ -98,7 +97,7 @@ Follow the instructions in the changelog [README](../../doc/ucsschool-changelog/
 
 ```shell
 git add -u
-git commit -m "Bug #${BUGNUMBER}: ucsschool 5.0v6 changelog"
+git commit -m "Bug #${BUGNUMBER}: ucsschool 5.0v7 changelog"
 git push
 ```
 
@@ -125,7 +124,7 @@ Finally, you should update [docs.univention.de](https://git.knut.univention.de/u
 The following commands can be run on `omar` to create a new release version:
 
 ```shell
-univention-appcenter-control new-version "5.0/ucsschool=5.0 v6" "5.0/ucsschool=5.0 v7"
+univention-appcenter-control new-version "5.0/ucsschool=5.0 v7" "5.0/ucsschool=5.0 v8"
 ```
 
 Then publish the packages to Test Appcenter:
@@ -134,7 +133,7 @@ Then publish the packages to Test Appcenter:
 # copy_app_binaries -r <ucs-major-minor> -v <app-version> -u <yaml-datei> ...
 # For example:
 cd ~/git/ucsschool/doc/errata/staging
-copy_app_binaries -r 5.0 -v "5.0 v6" -u ucs-school-lib.yaml ucs-school-umc-diagnostic.yaml
+copy_app_binaries -r 5.0 -v "5.0 v7" -u ucs-school-lib.yaml ucs-school-umc-diagnostic.yaml
 ```
 
 The `ucs-test-ucsschool` package should also be released, if it is safe to do so.
@@ -195,17 +194,17 @@ the headline.
 Send an internal announcement mail with the following text (**Adapt version and name**):
 ```
 To: app-announcement@univention.de
-Subject: App Center: UCS@school 5.0 v6 released
+Subject: App Center: UCS@school 5.0 v7 released
 
 Hello all,
 
 the following app update has just been released:
-- UCS@school 5.0 v6
+- UCS@school 5.0 v7
 
 The changelog is available here:
 
-- https://docs.software-univention.de/ucsschool-changelog/5.0v6/en/changelog.html
-- https://docs.software-univention.de/ucsschool-changelog/5.0v6/de/changelog.html
+- https://docs.software-univention.de/ucsschool-changelog/5.0v7/en/changelog.html
+- https://docs.software-univention.de/ucsschool-changelog/5.0v7/de/changelog.html
 
 Excerpts from the changelog:
 - ...
@@ -232,10 +231,10 @@ This will enable you to select and modify the bugs you need.
 
 Use this text as the comment for closing the mentioned bugs:
 ```
-UCS@school 5.0 v6 has been released.
+UCS@school 5.0 v7 has been released.
 
-- https://docs.software-univention.de/ucsschool-changelog/5.0v6/en/changelog.html
-- https://docs.software-univention.de/ucsschool-changelog/5.0v6/de/changelog.html
+- https://docs.software-univention.de/ucsschool-changelog/5.0v7/en/changelog.html
+- https://docs.software-univention.de/ucsschool-changelog/5.0v7/de/changelog.html
 
 If this error occurs again, please clone this bug.
 ```

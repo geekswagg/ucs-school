@@ -24,12 +24,12 @@ This document uses Sphinx for building the artifacts from the reStructeredText
 **NOTE:** If you are doing an errata release, skip this step.
 
 The following example illustrates the procedure on the example for the
-UCS@school 5.0 v6 release version.
+UCS@school 5.0 v8 release version.
 
 Update configuration settings in `doc/ucsschool-changelog/conf.py`:
 
-* Set `univention_changelog_previous_release` to `"5.0 v5"`.
-* Set `release` to `5.0 v6`. It may also have to be adapted in [base-doc.yml](../../.gitlab-ci/base-doc.yml).
+* Set `univention_changelog_previous_release` to `"5.0 v7"`.
+* Set `release` to `5.0 v8`. It may also have to be adapted in [base-doc.yml](../../.gitlab-ci/base-doc.yml).
 * Keep `version` at `5.0`.
 
 Update previous and current version in `index.rst`.

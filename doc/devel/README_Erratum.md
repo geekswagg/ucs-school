@@ -106,8 +106,8 @@ Errata have just been released for UCS@school 5.0 v6.
 
 The changelog is available here:
 
-- https://docs.software-univention.de/ucsschool-changelog/5.0v6/en/changelog.html
-- https://docs.software-univention.de/ucsschool-changelog/5.0v6/de/changelog.html
+- https://docs.software-univention.de/ucsschool-changelog/5.0v7/en/changelog.html
+- https://docs.software-univention.de/ucsschool-changelog/5.0v7/de/changelog.html
 
 Excerpts from the changelog:
 
@@ -134,10 +134,10 @@ This will enable you to select and modify the bugs you need.
 Use this text as the comment for closing the mentioned bugs:
 
 ```
-Errata updates for UCS@school 5.0 v6 have been released.
+Errata updates for UCS@school 5.0 v7 have been released.
 
-https://docs.software-univention.de/ucsschool-changelog/5.0v6/en/changelog.html
-https://docs.software-univention.de/ucsschool-changelog/5.0v6/de/changelog.html
+https://docs.software-univention.de/ucsschool-changelog/5.0v7/en/changelog.html
+https://docs.software-univention.de/ucsschool-changelog/5.0v7/de/changelog.html
 
 If this error occurs again, please clone this bug.
 ```
