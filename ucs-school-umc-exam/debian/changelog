@@ -1,3 +1,9 @@
+ucs-school-umc-exam (10.0.16) unstable; urgency=medium
+
+  * univention/ucsschool#1394: Fix handling of disabled users in multiple exams.
+
+ -- Ole Schwiegert <schwiegert@univention.de>  Thu, 20 Mar 2025 07:32:00 +0200
+
 ucs-school-umc-exam (10.0.15) unstable; urgency=medium
 
   * Bug #57667: Fixed duplicated aces in NT acls.
