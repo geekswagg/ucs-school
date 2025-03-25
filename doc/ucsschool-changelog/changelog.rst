@@ -8,6 +8,17 @@
 Changelog
 *********
 
+.. _changelog-ucsschool-2025-XX-XX:
+
+Released on 2025-XX-XX
+======================
+
+Source package *ucs-school-umc-exam* in version ``10.0.16``:
+
+* Fixed a bug for students in multiple exams, if the :envvar:`ucsschool/exam/user/disable` was set to ``yes``.
+  Their exam users would not be configured properly (:uv:bug:`58116`).
+
+
 .. _changelog-ucsschool-2025-03-10:
 
 Released on 2025-03-10
