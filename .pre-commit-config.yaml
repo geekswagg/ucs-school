@@ -143,5 +143,20 @@ repos:
           # MD013: Allow arbitrary line length
           # MD024: Allow duplicate headings
           # MD034: Allow bare URLs
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.0.0
+    hooks:
+      - id: conventional-pre-commit
+        language_version: python3.11
+        stages: [ commit-msg ]
+        args: ["--strict"]
+  - repo: local
+    hooks:
+      - id: issue-reference
+        stages: [ commit-msg ]
+        name: issue-reference
+        language: pygrep
+        entry: '.*\n\n(Issue ([a-zA-Z_/-]+)#\d+|Bug #\d+)\n?(\n#.*)*\Z'
+        args: ["--multiline", "--negate"]
 default_language_version:
   python: python3.7

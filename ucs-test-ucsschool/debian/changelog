@@ -1,3 +1,10 @@
+ucs-test-ucsschool (7.3.202) unstable; urgency=medium
+
+  * Issue univention/ucsschool#1394: fix test for multiple exams on multi
+    server
+
+ -- Jürn Brodersen <brodersen@univention.de>  Wed, 02 Apr 2025 15:00:20 +0200
+
 ucs-test-ucsschool (7.3.201) unstable; urgency=low
 
   * Issue univention/ucsschool#1394: Add tests for multiple exams
