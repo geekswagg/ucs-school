@@ -1,10 +1,13 @@
 import enum
 import logging
 import os
+import pwd
 import random
+import shutil
 import subprocess
 import tempfile
 import time
+from pathlib import Path
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, Type  # noqa: F401
 
 import pytest
@@ -537,3 +540,125 @@ def schedule_restart_umc(schedule_restart_services):
     )
     # wait some time for UMC web server and UMC server to be ready before the next test is called
     time.sleep(5)
+
+
+@pytest.fixture(autouse=True)
+def stop_module_process():
+    # Clean up ressources
+    yield
+    subprocess.call(
+        [
+            "pkill",
+            "--full",
+            "/usr/bin/python3 /usr/sbin/univention-management-console-module -m ",
+        ]
+    )
+
+
+@pytest.fixture()
+def copy_file():
+    """Copy file to target location and cleans up afterwards."""
+    cleanup_paths = {}
+
+    def _copy_file(src, dest):
+        if os.path.exists(dest):
+            backup_file = dest + ".pytest_backup_file_" + str(time.time())
+            shutil.copy2(dest, backup_file)
+        else:
+            backup_file = None
+        cleanup_paths[dest] = backup_file
+        shutil.copy(src, dest)
+
+    yield _copy_file
+    for target, backup_file in cleanup_paths.items():
+        Path(target).unlink()
+        if backup_file is not None:
+            shutil.move(backup_file, target)
+
+
+@pytest.fixture(scope="session")
+def check_pdfprinter_spool_permissions():
+    def _func(username):  # type: (str) -> None
+        spool_dir = "/var/spool/cups-pdf/{}".format(username)
+        file_owner = os.stat(spool_dir).st_uid
+        user_uid = pwd.getpwnam(username).pw_uid
+        print("*** Directory {}:  expected={}  found={}".format(spool_dir, user_uid, file_owner))
+        assert file_owner == user_uid, "Directory {} has invalid owner: expected={}  found={}".format(
+            spool_dir, user_uid, file_owner
+        )
+
+    return _func
+
+
+@pytest.fixture(scope="session")
+def list_pdfprinter_jobs():
+    def _func(username):  # type: (str) -> List[str]
+        path = "/var/spool/cups-pdf/%s" % (username)
+        files = []
+        for root, _, filenames in os.walk(path):
+            files.extend([os.path.relpath(os.path.join(root, f), path) for f in filenames])
+        return files
+
+    return _func
+
+
+@pytest.fixture(scope="session")
+def send_pdfprinter_job(ucr, list_pdfprinter_jobs):
+    def _func(
+        printer_name,
+        printhost,
+        username,
+        filename,
+        waiting_time_for_printjob=60,
+    ):  # type: (str, str, str, str, int) -> None
+        """
+        Sends the specified Postscript file as a new print job to the specified PDF printer.
+        Then smbclient is used to check whether the print job has arrived there.
+        """
+        assert " " not in filename, "whitespace is currently not supported in printjob's filename."
+        oldPrintJobs = list_pdfprinter_jobs(username)
+        job = []
+        cmds = [
+            ["lpr", "-P", printer_name, "-U", username, filename],
+            [
+                "smbclient",
+                "//%s/%s" % (printhost, printer_name),
+                "-d3",
+                "-U",
+                "%s%%%s" % (username, "univention"),
+                "-c",
+                "print %s" % filename,
+            ],
+        ]
+        # cmd = ['smbclient', "-N", "-L", "//%s/%s" % (printhost, printer_name)]
+        for cmd in cmds:
+            print("cmd = %s" % " ".join(cmd))
+            err, out = subprocess.Popen(
+                cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            ).communicate()
+            # workaround for smbclient session setup failed: NT_STATUS_LOGON_FAILURE
+            for waitingTime in range(150):
+                err, out = subprocess.Popen(
+                    cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                ).communicate()
+                if err:
+                    time.sleep(1)
+                    print(" - %d - " % waitingTime, err)
+                else:
+                    break
+            err, out = subprocess.Popen(
+                cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            ).communicate()
+            assert not err, "Orderprint failure:\n%r\n%r" % (err, out)
+            if "smbclient" in cmd:
+                username = username.lower()
+            for waitingTime in range(waiting_time_for_printjob):
+                job = [x for x in list_pdfprinter_jobs(username) if x not in oldPrintJobs]
+                if not job:
+                    time.sleep(1)
+                    print(" - %d - " % waitingTime, "Waiting for print job .. ")
+                else:
+                    break
+            assert job, "Ordered print job was not stored in user spool directory"
+
+    return _func
