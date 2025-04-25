@@ -1,3 +1,9 @@
+ucs-school-umc-exam (10.0.17) unstable; urgency=medium
+
+  * univention/ucsschool#1408: Fix permissions of spool directories for exam users.
+
+ -- Sönke Schwardt-Krummrich <schwardt@univention.de>  Mon, 28 Apr 2025 11:55:26 +0200
+
 ucs-school-umc-exam (10.0.16) unstable; urgency=medium
 
   * univention/ucsschool#1394: Fix handling of disabled users in multiple exams.

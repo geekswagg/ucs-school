@@ -8,7 +8,17 @@
 Changelog
 *********
 
-.. _changelog-ucsschool-2025-XX-XX:
+.. _changelog-ucsschool-2025-04-28:
+
+Released on 2025-04-28
+======================
+
+Source package *ucs-school-umc-exam* in version ``10.0.17``:
+
+* Fix: The permissions of the PDF printer queue directory of exam users are now automatically corrected when the exam is started. Previously, it could happen that print jobs were sent by the exam user, but no print jobs appeared in the print moderation (:uv:bug:`58236`).
+
+.. _changelog-ucsschool-2025-04-03:
+
 
 Released on 2025-04-03
 ======================
