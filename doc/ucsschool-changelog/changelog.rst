@@ -8,6 +8,15 @@
 Changelog
 *********
 
+.. _changelog-ucsschool-2025-06-04:
+
+Released on 2025-06-04
+======================
+
+Source package *ucs-school-umc-distribution* in version ``18.0.11``:
+
+* Security fix: The package has been checked and additional measures have been added to prevent possible cross-site scripting in the UMC module(s) (:uv:bug:`58366`).
+
 .. _changelog-ucsschool-2025-04-28:
 
 Released on 2025-04-28
