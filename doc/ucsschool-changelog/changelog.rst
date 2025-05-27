@@ -17,6 +17,10 @@ Source package *ucs-school-umc-distribution* in version ``18.0.11``:
 
 * Security fix: The package has been checked and additional measures have been added to prevent possible cross-site scripting in the UMC module(s) (:uv:bug:`58366`).
 
+Source package *ucs-school-umc-printermoderation* in version ``17.1.5``:
+
+* Security fix: The package has been checked and additional measures have been added to prevent possible cross-site scripting in the UMC module(s) (:uv:bug:`58366`).
+
 .. _changelog-ucsschool-2025-04-28:
 
 Released on 2025-04-28
