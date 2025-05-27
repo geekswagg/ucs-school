@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: UCS@school - 5.0 v7 Changelog \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-02 14:40+0000\n"
+"POT-Creation-Date: 2025-06-02 14:50+0000\n"
 "PO-Revision-Date: 2025-04-28 13:39+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,7 @@ msgid "Source package *ucs-school-umc-distribution* in version ``18.0.11``:"
 msgstr "Quellpaket *ucs-school-umc-distribution* in Version ``18.0.11``:"
 
 #: ../../changelog.rst:18 ../../changelog.rst:22 ../../changelog.rst:26
+#: ../../changelog.rst:30
 msgid ""
 "Security fix: The package has been checked and additional measures have "
 "been added to prevent possible cross-site scripting in the UMC module(s) "
@@ -47,15 +48,19 @@ msgstr "Quellpaket *ucs-school-umc-printermoderation* in Version ``17.1.5``:"
 msgid "Source package *ucs-school-umc-wizards* in version ``12.0.15``:"
 msgstr "Quellpaket *ucs-school-umc-wizards* in Version ``12.0.15``:"
 
-#: ../../changelog.rst:31
+#: ../../changelog.rst:28
+msgid "Source package *ucs-school-umc-exam* in version ``10.0.18``:"
+msgstr "Quellpaket *ucs-school-umc-exam* in Version ``10.0.18``:"
+
+#: ../../changelog.rst:35
 msgid "Released on 2025-04-28"
 msgstr "Veröffentlicht am 28.04.2025"
 
-#: ../../changelog.rst:33
+#: ../../changelog.rst:37
 msgid "Source package *ucs-school-umc-exam* in version ``10.0.17``:"
 msgstr "Quellpaket *ucs-school-umc-exam* in Version ``10.0.17``:"
 
-#: ../../changelog.rst:35
+#: ../../changelog.rst:39
 msgid ""
 "Fix: The permissions of the PDF printer queue directory of exam users are"
 " now automatically corrected when the exam is started. Previously, it "
@@ -68,15 +73,15 @@ msgstr ""
 "Prüfungsbenutzer abgesetzt wurden, diese aber nicht in der Druck-"
 "Moderation aufgetaucht sind (:uv:bug:`58236`)."
 
-#: ../../changelog.rst:41
+#: ../../changelog.rst:45
 msgid "Released on 2025-04-03"
 msgstr "Veröffentlicht am 03.04.2025"
 
-#: ../../changelog.rst:43
+#: ../../changelog.rst:47
 msgid "Source package *ucs-school-umc-exam* in version ``10.0.16``:"
 msgstr "Quellpaket *ucs-school-metapackage* in Version ``10.0.16``:"
 
-#: ../../changelog.rst:45
+#: ../../changelog.rst:49
 msgid ""
 "Fixed a bug for students in multiple exams, if the "
 ":envvar:`ucsschool/exam/user/disable` was set to ``yes``. Their exam "
@@ -88,15 +93,15 @@ msgstr ""
 "wurde.Klassenarbeitsbenutzer wurden nicht korrekt konfiguriert "
 "(:uv:bug:`58116`)."
 
-#: ../../changelog.rst:52
+#: ../../changelog.rst:56
 msgid "Released on 2025-03-10"
 msgstr "Veröffentlicht am 10.03.2025"
 
-#: ../../changelog.rst:54
+#: ../../changelog.rst:58
 msgid "Source package *ucs-school-metapackage* in version ``13.0.19``:"
 msgstr "Quellpaket *ucs-school-metapackage* in Version ``13.0.19``:"
 
-#: ../../changelog.rst:56
+#: ../../changelog.rst:60
 msgid ""
 "Updated: In preparation for the UCS@school 5.2 update, two join hooks are"
 " now installed in the system. The first uses Python 2.7 and is registered"
@@ -108,11 +113,11 @@ msgstr ""
 " nur für UCS 4.4-Systeme registriert. Der zweite verwendet Python 3 und "
 "ist im LDAP für UCS 5.0 und neuer registriert (:uv:bug:`57897`)."
 
-#: ../../changelog.rst:58
+#: ../../changelog.rst:62
 msgid "Source package *ucs-school-import-lusd* in version ``1.0.5``:"
 msgstr "Quellpaket *ucs-school-import-lusd* in Version ``1.0.5``:"
 
-#: ../../changelog.rst:60
+#: ../../changelog.rst:64
 msgid ""
 "Fixed: The default value for the LUSD ``issuer``, used for "
 "authentication, has been changed for production use (:uv:bug:`57974`)."
