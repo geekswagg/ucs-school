@@ -245,8 +245,8 @@ define([
 			this.inherited(arguments);
 
 			// set the page header
-			this.headerText = _('Screenshots of computers');
-			this.helpText = _('This page shows screenshots of selected computers that will be updated continuously.');
+			this.headerText = entities.encode(_('Screenshots of computers'));
+			this.helpText = entities.encode(_('This page shows screenshots of selected computers that will be updated continuously.'));
 		},
 
 		buildRendering: function() {
@@ -257,7 +257,7 @@ define([
 
 			var headerButtons = [{
 				name: 'close',
-				label: _('Back to overview'),
+				label: entities.encode(_('Back to overview')),
 				iconClass: 'arrow-left',
 				onClick: lang.hitch(this, function() {
 					this._cleanup();
@@ -269,7 +269,7 @@ define([
 
 			this._cbxSize = new ComboBox( {
 				region: 'nav',
-				name: _('Size'),
+				name: entities.encode(_('Size')),
 				staticValues: [
 					{ id: 4, label: _('Tiny') },
 					{ id: 3, label: _('Small') },
