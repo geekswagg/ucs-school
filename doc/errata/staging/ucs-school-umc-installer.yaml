@@ -1,0 +1,8 @@
+product: ucsschool
+release: "5.0"
+released:
+version: [0]
+scope: ucs_5.0-0-ucs-school-5.0
+src: ucs-school-umc-installer
+fix: 8.0.11
+bug: [58366]
