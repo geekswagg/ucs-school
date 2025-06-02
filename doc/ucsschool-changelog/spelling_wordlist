@@ -11,3 +11,5 @@ UMC-Import
 Samba-SPN-Liste
 Keycloak-Kerberos-Benutzer-SPN
 Django
+Sicherheitsfix
+Cross-Site-Scripting
