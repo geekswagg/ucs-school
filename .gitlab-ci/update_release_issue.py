@@ -114,7 +114,7 @@ class RelaeseIssue:
                 data = yaml.safe_load(f)
         except FileNotFoundError:
             return []
-        return list(data.get("bugs", {}).keys())
+        return data.get("bug", [])
 
     def _get_issue_title(self):
         schoolversion = self.latest_app["schoolversion"]
