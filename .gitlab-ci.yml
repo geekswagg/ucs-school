@@ -4,6 +4,7 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == "webide"
     - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_OPEN_MERGE_REQUESTS
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_REF_PROTECTED == "true"
+    - if: $RUN_UPDATE_RELEASE_ISSUE == "yes"
 
 variables:
   RUN_RELEASE:
