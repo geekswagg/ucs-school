@@ -55,8 +55,8 @@ msgid "Source package *ucs-school-umc-exam* in version ``10.0.18``:"
 msgstr "Quellpaket *ucs-school-umc-exam* in Version ``10.0.18``:"
 
 #: ../../changelog.rst:32
-msgid "Source package *ucs-school-umc-computerroom* in version ``12.0.25``:"
-msgstr "Quellpaket *ucs-school-umc-computerroom* in Version ``12.0.25``:"
+msgid "Source package *ucs-school-umc-computerroom* in version ``12.0.26``:"
+msgstr "Quellpaket *ucs-school-umc-computerroom* in Version ``12.0.26``:"
 
 #: ../../changelog.rst:36
 msgid "Source package *ucs-school-umc-groups* in version ``10.0.11``:"

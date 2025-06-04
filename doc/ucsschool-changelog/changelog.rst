@@ -29,7 +29,7 @@ Source package *ucs-school-umc-exam* in version ``10.0.18``:
 
 * Security fix: The package has been checked and additional measures have been added to prevent possible cross-site scripting in the UMC module(s) (:uv:bug:`58366`).
 
-Source package *ucs-school-umc-computerroom* in version ``12.0.25``:
+Source package *ucs-school-umc-computerroom* in version ``12.0.26``:
 
 * Security fix: The package has been checked and additional measures have been added to prevent possible cross-site scripting in the UMC module(s) (:uv:bug:`58366`).
 
