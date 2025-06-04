@@ -31,10 +31,10 @@ variables:
 include:
   - local: .gitlab-ci/gitlab-ci.yml
     rules:
-      - if: $RUN_RELEASE != "yes"
-  - local: .gitlab-ci/gitlab-ci.yml
-    rules:
-      - if: $RUN_UPDATE_RELEASE_ISSUE != "yes"
+      - if: $RUN_RELEASE != "yes" && $RUN_UPDATE_RELEASE_ISSUE != "yes"
   - local: .gitlab-ci/release.yml
     rules:
       - if: $RUN_RELEASE == "yes"
+  - local: .gitlab-ci/update_release_issue.yml
+    rules:
+      - if: $RUN_UPDATE_RELEASE_ISSUE == "yes"
