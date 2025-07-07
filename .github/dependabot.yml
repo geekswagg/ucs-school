@@ -1,0 +1,54 @@
+# .github/dependabot.yml
+
+version: 2
+updates:
+  # .NET / NuGet dependencies
+  - package-ecosystem: "nuget"
+    directory: "/" # Adjust if your .csproj or packages.config is in a subdirectory
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Africa/Nairobi"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # JavaScript/TypeScript frontend (VueJS/NPM)
+  - package-ecosystem: "npm"
+    directory: "/" # Adjust if package.json is in a subdirectory (e.g., /ClientApp)
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "06:00"
+      timezone: "Africa/Nairobi"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # Dockerfile updates (if using containers)
+  - package-ecosystem: "docker"
+    directory: "/" # Adjust if Dockerfile is in a subdirectory
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "06:00"
+      timezone: "Africa/Nairobi"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/" # Always root for GitHub Actions
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "06:00"
+      timezone: "Africa/Nairobi"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
