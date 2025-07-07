@@ -259,7 +259,11 @@ class User(Person):
 
         param = [{"object": object_props, "options": None}]
         print("#### Editing user %s" % (self.username,))
-        print("#### param = %s" % (param,))
+        sanitized_param = param.copy()
+        for entry in sanitized_param:
+            if "object" in entry and "password" in entry["object"]:
+                entry["object"]["password"] = "REDACTED"
+        print("#### param = %s" % (sanitized_param,))
         reqResult = self.client.umc_command("schoolwizards/users/put", param, flavor).result
         assert reqResult[0] is True, "Unable to edit user (%s) with the parameters (%r) : %r" % (
             self.username,
